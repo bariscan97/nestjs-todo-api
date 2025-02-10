@@ -6,7 +6,6 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class TodosController {
   constructor(private todosService: TodosService) {}
 
-  // Create a todo (protected by JWT)
   @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Request() req, @Body() body: { title: string; description: string }) {
